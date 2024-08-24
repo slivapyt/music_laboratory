@@ -7,15 +7,21 @@ NULLABLE = {'blank': True, 'null': True}
 
 
 class Post(models.Model):
-    title = models.CharField(max_length=200)
-    content = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    preview_img = models.ImageField(verbose_name='превью', **NULLABLE)
-    
+
+    blog_title = models.CharField(max_length=200)
+    blog_subtitle = models.CharField(max_length=200)
+    blog_text = models.TextField(**NULLABLE)
+
+    about_text = models.TextField(**NULLABLE)
+
+    def formatted_blog_text(self):
+        return self.blog_text.replace("\n", "<br>")
+
+    formatted_blog_text.allow_tags = True
+
     
     def __str__(self):
-        return self.title
+        return self.blog_title
     
     class Meta:
         verbose_name = 'пост'

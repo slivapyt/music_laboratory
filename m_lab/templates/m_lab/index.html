@@ -1592,7 +1592,9 @@
 						>
 						
 							<div class="tn-atom" field="tn_text_1475837651613">
-								Контент биография
+								{% for object in object_list %}
+									{{ object.about_text|linebreaksbr }}
+								{% endfor %}
 							</div>
 						</div>
 						<div
@@ -1682,20 +1684,22 @@
 								<div class="t-cover__wrapper t-valign_middle" style="height: ">
 									<div data-hook-content="covercontent">
 										<div class="t543__wrapper t543__wrapper_desktop">
+										{% for object in object_list %}
 											<div class="t543__textwrapper t-align_left">
 												<div
 													class="t543__title t-name t-name_xl t543__bottommargin_lg"
 													field="title"
 												>
-													Блог
+													{{ object.blog_title }}
 												</div>
 												<div class="t543__text t-text t-text_sm" field="text">
-													<br />мы научим:<br />
-													<ul>
-														<li>Контент</li>
-													</ul>
+													<br />{{ object.blog_subtitle }}:<br />
+													<a>
+														{{ object.blog_text|linebreaksbr }}
+													</a>
 												</div>
 											</div>
+										{% endfor %}
 										</div>
 									</div>
 								</div>
