@@ -26,3 +26,12 @@ class Post(models.Model):
     class Meta:
         verbose_name = 'пост'
         verbose_name_plural = 'посты'
+
+
+class Photo(models.Model):
+    title = models.CharField(max_length=250, verbose_name='название', **NULLABLE)
+    photography = models.ImageField(upload_to='images/', verbose_name='Фото')
+
+    class Meta:
+        verbose_name = 'фото'
+        verbose_name_plural = 'фото'
