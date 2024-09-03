@@ -5,5 +5,5 @@ from django.views.decorators.cache import cache_page, never_cache
 
 app_name = MLabConfig.name
 urlpatterns = [
-    path('', views.Main.as_view(), name='main'),
+    path('', cache_page(60)(views.Main.as_view()), name='main'),
 ]

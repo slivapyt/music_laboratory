@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-7ci%t+k23&o(n)b#(@(3@2(4jww14^n+7(=4)jf2cy1nlo1df$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['yourdomain.com', '8256-46-180-202-110.ngrok-free.app']
 
 
 # Application definition
@@ -79,10 +79,10 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('m_lab'),
+        'NAME': os.getenv('DB_NAME'),
         'USER': os.getenv('DB_USER'),
         'PASSWORD': os.getenv('DB_PASSWORD'),
-        'PORT': os.getenv('DB_PORT'),
+        'HOST': 'db'
     }
 }
 
@@ -138,6 +138,6 @@ CACHE_ENABLED = True
 CACHES = {
     "default": {
         "BACKEND": "django.core.cache.backends.redis.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379",
+        "LOCATION": "redis://redis:6379",
     }
 }

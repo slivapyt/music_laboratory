@@ -1601,9 +1601,11 @@
 						>
 						
 							<div class="tn-atom" field="tn_text_1475837651613">
-								{% for object in object_list %}
-									{{ object.about_text|linebreaksbr }}
-								{% endfor %}
+								{% if object_list %}
+									{% for object in object_list %}
+										{{ object.about_text|linebreaksbr }}
+									{% endfor %}
+								{% endif %}
 							</div>
 						</div>
 						<div
@@ -1858,6 +1860,7 @@
 									aria-roledescription="carousel"
 									aria-live="off"
 								>
+								{% if photos  %}
 									{% for photo in photos %}
 									<div
 										class="t-slds__item t-slds__item_active"
@@ -1904,6 +1907,7 @@
 										</div>
 									</div>
 									{% endfor %}
+								{% endif %}
 								</div>
 							</div>
 						</div>
